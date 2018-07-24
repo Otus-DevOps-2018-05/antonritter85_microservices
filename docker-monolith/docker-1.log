@@ -1,0 +1,14 @@
+> docker images
+REPOSITORY                      TAG                 IMAGE ID            CREATED             SIZE
+antonritter85/ubuntu-tmp-file   latest              80bc8bc1da81        7 seconds ago       115MB
+ubuntu                          16.04               e13f3d529b1a        7 days ago          115MB
+hello-world                     latest              2cb0d9787c4d        13 days ago         1.85kB
+
+У контейнера есть:
+- состояние на данный момент времени;
+- квоты ресурсов;
+- image, на котором он основан;
+- настройки data volumes;
+- настройки сети.
+
+Image похож на снапшот контейнера, в котором содержатся только неизменные данные.
