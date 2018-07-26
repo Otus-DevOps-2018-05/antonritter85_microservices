@@ -1,7 +1,21 @@
 # antonritter85_microservices
 antonritter85 microservices repository
 
-# Homework-12 Docker-1
+## Homework-13 Docker-2
+
+### Задание со слайда 15:
+
+```
+docker run --rm -ti tehbilly/htop
+```
+В этом случае htop отображает только только PID 1 контейнера (собственно htop).
+
+```
+docker run --rm --pid host -ti tehbilly/htop
+```
+В этом случае htop отображает множество процессов хостовой системы.
+
+## Homework-12 Docker-1
 
 #### В процессе сделано:
 
