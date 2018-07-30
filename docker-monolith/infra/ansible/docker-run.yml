@@ -1,0 +1,14 @@
+---
+- name: Run Docker container
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Run otus-reddit container
+      docker_container:
+        name: otus-reddit
+        state: started
+        image: "antonritter85/otus-reddit:1.0"
+        ports:
+          - "9292:9292"
+      tags: run
