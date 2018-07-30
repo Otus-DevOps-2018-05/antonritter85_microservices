@@ -7,3 +7,6 @@
 
 # Google Compute Engine account settings for Ansible
 gce.ini
+
+# Packer ignored files
+variables.json
