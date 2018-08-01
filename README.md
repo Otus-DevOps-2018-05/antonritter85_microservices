@@ -3,6 +3,19 @@ antonritter85 microservices repository
 
 ## Homework-13 Docker-2
 
+#### Задание со * (слайд 16):
+
+Запускаем контейнеры с новыми сетевыми алиасами, переопределив переменные окружение в клмандах docker run, и убеждаемся, что сервисы работают:
+
+```
+docker run -d --network=reddit --network-alias=new_post_db --network-alias=new_comment_db mongo:latest
+docker run -d -e "POST_DATABASE_HOST=new_post_db" --network=reddit --network-alias=new_post antonritter85/post:1.0
+docker run -d -e "COMMENT_DATABASE_HOST=new_comment_db" --network=reddit --network-alias=new_comment antonritter85/comment:1.0
+docker run -d -e "POST_SERVICE_HOST=new_post" -e "COMMENT_SERVICE_HOST=new_comment" --network=reddit -p 9292:9292 antonritter85/ui:1.0
+```
+
+## Homework-13 Docker-2
+
 #### В процессе сделано:
 
 - создан проект docker в GCP;
