@@ -1,6 +1,14 @@
 # antonritter85_microservices
 antonritter85 microservices repository
 
+## Homework-16 Gitlab-CI-1
+
+#### В процессе сделано:
+
+- выполнена omnibus-инсталляция GitLab в Docker контейнере;
+- выполнены первичные настройки GitLab и созданы группа проектов и проект;
+
+
 ## Homework-15 Docker-4
 
 #### В процессе сделано:
