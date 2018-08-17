@@ -6,8 +6,24 @@ antonritter85 microservices repository
 #### В процессе сделано:
 
 - выполнена omnibus-инсталляция GitLab в Docker контейнере;
-- выполнены первичные настройки GitLab и созданы группа проектов и проект;
+- выполнены первичные настройки GitLab;
+- созданы группа проектов и проект: репозиторий antonritter85_microservices запушен в проект;
+- описан CI/CD pipeline для проекта;
+- создан и запущен GitLab Runner в Docker контейнере;
+- Runner зарегестрирован в интерактивном режиме: после регистрации автоматически стартовал pipeline;
+- pipeline изменен: добавлено тестирование приложения reddit;
+- (Задание со *) создан Ansible плейбук (gitlab-runner-run-register.yml) для развертывания и регистрации Docker контейнера с GitLab Runner;
+- (Задание со *) добавлена интеграция GitLab (в том числе и pipeline Slack): https://devops-team-otus.slack.com/messages/CB5HC9J5U
 
+#### Задание со *
+
+Пример запуска и регистрации Docker контейнера с GitLab Runner:
+
+```
+ansible-playbook gitlab-runner-run-register.yml --extra-vars="runner_name=gitlab-runner-1"
+```
+
+В переменной runner-name задается имя контейнера (оно же идет в runner description), токен зашифрован с помощью Ansible Vault.
 
 ## Homework-15 Docker-4
 
