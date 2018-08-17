@@ -1,0 +1,40 @@
+---
+- name: Run and register GitLab runner Docker container
+  hosts: all
+  become: true
+  vars:
+    runner_name: gitlab-runner
+  vars_files:
+    - "gitlab-runner-token.yml"
+
+  tasks:
+
+    - name: Get my public IP
+      ipify_facts:
+
+    - debug: var=ipify_public_ip
+
+    - name: Run GitLab runner
+      docker_container:
+        name: "{{ runner_name }}"
+        image: "gitlab/gitlab-runner:latest"
+        volumes:
+          - "/srv/gitlab-runner/config:/etc/gitlab-runner"
+          - "/var/run/docker.sock:/var/run/docker.sock"
+        state: started
+        restart: yes
+        restart_policy: always
+      tags: run
+
+    - name: Register runner
+      raw: >
+        docker exec -it {{ runner_name }} gitlab-runner register \
+        --non-interactive \
+        --executor "docker" \
+        --docker-image alpine:latest \
+        --url "http://{{ ipify_public_ip }}/" \
+        --registration-token "{{ gitlab_token }}" \
+        --description "{{ runner_name }}" \
+        --tag-list "linux,xenial,ubuntu,docker" \
+        --run-untagged \
+        --locked="false"

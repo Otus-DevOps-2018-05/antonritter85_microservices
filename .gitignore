@@ -12,3 +12,5 @@ gce.ini
 variables.json
 
 *.env
+
+vault.key
