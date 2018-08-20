@@ -1,6 +1,57 @@
 # antonritter85_microservices
 antonritter85 microservices repository
 
+## Homework-14 Docker-3
+
+#### В процессе сделано:
+
+- скачан исходный код микросервисных приложений: post-py, comment,ui;
+- созданы Dockerfile для каждого из приложений;
+- скачан образ mongo c Docker Hub, собраны образы для каждого из микросервисных приложений;
+- создана сеть для контейнеров reddit;
+- запущены контейнеры в сети reddit с соответствующими сетевыми алиасами;
+- (Задание со *, слайд 16) запущены контейнеры в сети reddit с новыми сетевыми алиасами, переопределив переменные окружение в командах docker run;
+- уменьшен размер образа ui (использован базовый образ ubuntu:16.04);
+- (Задание со *, слайд 16) уменьшен размер образа ui (использованы базовые образы alpine:3.5 и ruby:2.2-alpine);
+- работа с volume:
+  - создан volume reddit_db;
+  - перезапущены контейнеры, reddit_db подключен к контейнеру mongo;
+  - написан новый пост в приложении;
+  - контейенры остановлены;
+  - контейнеры перезапущены снова, reddit_db подключен к контейнеру mongo;
+  - убедились, что пост на месте.
+
+#### Вопрос (слайд 12)
+
+Обратите внимание! Сборка ui началась не с первого шага. Подумайте - почему? \
+*Ответ: потому что были использованы кэши от предыдущей сборки (comment).*
+
+#### Задание со * (слайд 16):
+
+Запускаем контейнеры с новыми сетевыми алиасами, переопределив переменные окружение в командах docker run, и убеждаемся, что сервисы работают:
+
+```
+docker run -d --network=reddit --network-alias=new_post_db --network-alias=new_comment_db mongo:latest
+docker run -d -e "POST_DATABASE_HOST=new_post_db" --network=reddit --network-alias=new_post antonritter85/post:1.0
+docker run -d -e "COMMENT_DATABASE_HOST=new_comment_db" --network=reddit --network-alias=new_comment antonritter85/comment:1.0
+docker run -d -e "POST_SERVICE_HOST=new_post" -e "COMMENT_SERVICE_HOST=new_comment" --network=reddit -p 9292:9292 antonritter85/ui:1.0
+```
+
+#### Задание со * (слайд 20):
+
+```
+➜ docker images
+REPOSITORY              TAG                 IMAGE ID            CREATED             SIZE
+antonritter85/ui        3.0                 48d0d69d75f3        16 minutes ago      235MB
+antonritter85/ui        4.0                 d687fd0c9093        45 minutes ago      302MB
+antonritter85/ui        2.0                 0a34203ccbfd        About an hour ago   460MB
+antonritter85/ui        1.0                 34cc5f28ec88        About an hour ago   777MB
+```
+
+antonritter85/ui:3.0 - в качестве базового образа использован alpine:3.5 (описан в  ui/Dockerfile) \
+antonritter85/ui:4.0 - в качестве базового образа использован ruby:2.2-alpine (описан в  ui/Dockerfile.4)
+
+
 ## Homework-13 Docker-2
 
 #### В процессе сделано:
