@@ -1,0 +1,12 @@
+#Terraform ignored files and directories
+*.tfstate
+*.tfstate.*.backup
+*.tfstate.backup
+*.tfvars
+.terraform/
+
+# Google Compute Engine account settings for Ansible
+gce.ini
+
+# Packer ignored files
+variables.json

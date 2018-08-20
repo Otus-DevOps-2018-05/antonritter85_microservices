@@ -1,0 +1,3 @@
+---
+- import_playbook: docker-ce-install.yml
+- import_playbook: docker-run.yml
