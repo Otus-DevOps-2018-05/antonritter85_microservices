@@ -1,6 +1,20 @@
 # antonritter85_microservices
 antonritter85 microservices repository
 
+## Homework-17 Gitlab-CI-2
+
+#### В процессе сделано:
+
+- создание нового проекта GitLab и включение для него, созданного в предыдущем ДЗ GitLab Runner;
+- описание окружений в pipeline: dev, stage production;
+- настройка окружений stage и production: "ручной" запуск из UI, выкатывание только тэгированных коммитов;
+- добавлено описание динамических окружений в pipeline;
+- (Задание со *) создание сервера для окружения при пуше новой ветки, с возможностью удалить его "вручную" из UI.
+
+#### Задание со *
+
+Для реализации были использованы Terraform workspaces. Данные доступа к GCE хранятся в переменной проекта GOOGLE_CREDENTIALS (CI / CD Settings > Variables).
+
 ## Homework-16 Gitlab-CI-1
 
 #### В процессе сделано:
