@@ -52,6 +52,10 @@ services:
     networks:
       - back_net
       - front_net
+  mongodb-exporter:
+    image: ${USERNAME}/mongodb_exporter:${MONGODB_EXPORTER_VERSION}
+    networks:
+      - back_net
 
 volumes:
   post_db:
