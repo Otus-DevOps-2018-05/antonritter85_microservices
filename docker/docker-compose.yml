@@ -53,9 +53,16 @@ services:
       - back_net
       - front_net
   mongodb-exporter:
-    image: ${USERNAME}/mongodb_exporter:${MONGODB_EXPORTER_VERSION}
+    image: ${USERNAME}/mongodb_exporter
+    environment:
+      - MONGODB_URL=mongodb://post_db:27017
     networks:
       - back_net
+  cloudprober:
+    image: ${USERNAME}/cloudprober
+    networks:
+      - back_net
+      - front_net
 
 volumes:
   post_db:
