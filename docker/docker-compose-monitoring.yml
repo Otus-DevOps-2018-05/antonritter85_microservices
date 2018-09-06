@@ -25,7 +25,6 @@ services:
       - '--path.sysfs=/host/sys'
       - '--collector.filesystem.ignored-mount-points="^/(sys|proc|dev|host|etc)($$|/)"'
     networks:
-      - back_net
       - front_net
   mongodb-exporter:
     image: ${USERNAME}/mongodb_exporter
@@ -49,9 +48,22 @@ services:
       - '/var/run:/var/run:rw'
       - '/sys:/sys:ro'
       - '/var/lib/docker/:/var/lib/docker:ro'
+  grafana:
+    image: grafana/grafana:5.2.3
+    networks:
+      - front_net
+    ports:
+      - 3000:3000
+    volumes:
+      - grafana_data:/var/lib/grafana
+    env_file:
+      - grafana.env
+    depends_on:
+      - prometheus
 
 volumes:
   prometheus_data:
+  grafana_data:
 
 networks:
   back_net:
