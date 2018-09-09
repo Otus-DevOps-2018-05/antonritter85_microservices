@@ -37,10 +37,10 @@ push-ui:
 			docker push $(USER_NAME)/ui
 
 push-prometheus:
-			docker push $(USER_NAME)/mongodb_exporter
+			docker push $(USER_NAME)/prometheus
 
 push-mongodb-exporter:
-			docker push $(USER_NAME)/prometheus
+			docker push $(USER_NAME)/mongodb_exporter
 
 push-cloudprober:
 			docker push $(USER_NAME)/cloudprober
