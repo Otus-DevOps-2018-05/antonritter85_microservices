@@ -68,6 +68,13 @@ services:
       - '--config.file=/etc/alertmanager/config.yml'
     ports:
       - 9093:9093
+  telegraf:
+    image: ${USERNAME}/telegraf
+    networks:
+      - back_net
+      - front_net
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock'
 
 volumes:
   prometheus_data:
