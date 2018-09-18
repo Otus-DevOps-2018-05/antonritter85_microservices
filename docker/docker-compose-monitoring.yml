@@ -56,8 +56,9 @@ services:
       - 3000:3000
     volumes:
       - grafana_data:/var/lib/grafana
-    env_file:
-      - grafana.env
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=secret
     depends_on:
       - prometheus
   alertmanager:
