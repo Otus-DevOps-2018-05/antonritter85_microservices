@@ -2,8 +2,14 @@
 all: build push
 .PHONY: all
 
-build: build-post build-comment build-ui build-prometheus build-mongodb-exporter build-cloudprober
+build: build-app build-mon
 .PHONY: build
+
+build-app: build-post build-comment build-ui
+.PHONY: build-app
+
+build-mon: build-prometheus build-mongodb-exporter build-cloudprober build-alertmanager build-telegraf
+.PHONY: build-mon
 
 build-post:
 			@cd $(PWD)/src/post-py/ && bash docker_build.sh
@@ -23,10 +29,21 @@ build-mongodb-exporter:
 build-cloudprober:
 			@cd $(PWD)/monitoring/cloudprober/ && docker build -t $(USER_NAME)/cloudprober .
 
+build-alertmanager:
+			@cd $(PWD)/monitoring/alertmanager/ && docker build -t $(USER_NAME)/alertmanager .
+
+build-telegraf:
+			@cd $(PWD)/monitoring/telegraf/ && docker build -t $(USER_NAME)/telegraf .
 
 # You must login to Docker Hub before push (docker login)
-push: push-post push-comment push-ui push-prometheus push-mongodb-exporter push-cloudprober
+push: push-app push-mon
 .PHONY: push
+
+push-app: push-post push-comment push-ui
+.PHONY: push-app
+
+push-mon: push-prometheus push-mongodb-exporter push-cloudprober push-alertmanager push-telegraf
+.PHONY: push-mon
 
 push-post:
 			docker push $(USER_NAME)/post
@@ -44,3 +61,9 @@ push-mongodb-exporter:
 
 push-cloudprober:
 			docker push $(USER_NAME)/cloudprober
+
+push-alertmanager:
+			docker push $(USER_NAME)/alertmanager
+
+push-telegraf:
+			docker push $(USER_NAME)/telegraf
