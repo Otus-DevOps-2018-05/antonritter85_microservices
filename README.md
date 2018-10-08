@@ -1,6 +1,14 @@
 # antonritter85_microservices
 antonritter85 microservices repository
 
+## Homework-21 Kubernetes-1
+
+#### В процессе сделано:
+
+- созданы манифесты в виде Deployment для сервисов приложения Reddit(ui,post, comment, mongo);
+- пройден туториал Kubernetes The Hard way;
+- на кластере, созданном в ходе прохождения туториала, запущены поды из манифестов.
+
 ## Homework-20 Logging-1
 
 #### В процессе сделано:
