@@ -12,7 +12,9 @@ antonritter85 microservices repository
 - знакомство с kubernetes dashboard;
 - развернут кластер в GKE;
 - запуск приложения reddit в кластере GKE;
-- запуск kubernetes dashboard в GKE.
+- запуск kubernetes dashboard в GKE;
+- (Задание со *) развернут Kubenetes-кластер в GKE с помощью Terraform;
+- (Задание со *) добален манифест для аутентификации kubernetes dashboard в кластере.
 
 ## Homework-21 Kubernetes-1
 
