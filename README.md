@@ -1,6 +1,19 @@
 # antonritter85_microservices
 antonritter85 microservices repository
 
+## Homework-23 Kubernetes-3
+
+#### В процессе сделано:
+
+- работа с абстракциями Kubernetes: NodePort, LoadBalancer, Ingress;
+- использование kubernetes Secret и TLS termination для работы приложения reddit через https;
+- использование NetworkPolicy для ограничения доступа к mongo отовсюду, кроме сервисов post и comment;
+- работа с абстракциями Kubernetes для хранения данных:
+  - Volume: emptyDir и hostPath (gcePersistentDisk);
+  - PersistentVolume, PersistentVolumeClaim;
+  - динамическое подключение дисков с помощью PersistentVolumeClaim и StorageClass;
+- (Задание со *) описание объекта Secret в виде манифеста.
+
 ## Homework-22 Kubernetes-2
 
 ![image](https://user-images.githubusercontent.com/39992506/47031353-5066df80-d178-11e8-9c31-f8a1bb5aba55.png)
