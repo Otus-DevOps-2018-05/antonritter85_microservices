@@ -18,3 +18,5 @@ vault.key
 # Certicate and key for Kubernetes Ingress
 tls.crt
 tls.key
+
+Gitlab_ci/
