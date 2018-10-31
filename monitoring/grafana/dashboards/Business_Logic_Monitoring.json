@@ -1,8 +1,8 @@
 {
   "__inputs": [
     {
-      "name": "DS_PROMETHEUS_SERVER",
-      "label": "Prometheus Server",
+      "name": "DS_PROM-PROMETHEUS-SERVER",
+      "label": "prom-prometheus-server",
       "description": "",
       "type": "datasource",
       "pluginId": "prometheus",
@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "5.2.3"
+      "version": "5.3.2"
     },
     {
       "type": "panel",
@@ -46,6 +46,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
+  "iteration": 1541020232160,
   "links": [],
   "panels": [
     {
@@ -53,7 +54,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS_SERVER}",
+      "datasource": "${DS_PROM-PROMETHEUS-SERVER}",
       "fill": 1,
       "gridPos": {
         "h": 9,
@@ -85,7 +86,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(post_count[1h])",
+          "expr": "rate(post_count{namespace=\"$namespace\"}[1h])",
           "format": "time_series",
           "intervalFactor": 1,
           "refId": "A"
@@ -136,7 +137,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS_SERVER}",
+      "datasource": "${DS_PROM-PROMETHEUS-SERVER}",
       "fill": 1,
       "gridPos": {
         "h": 8,
@@ -168,7 +169,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(comment_count[1h])",
+          "expr": "rate(comment_count{namespace=\"$namespace\"}[1h])",
           "format": "time_series",
           "intervalFactor": 1,
           "refId": "A"
@@ -219,7 +220,29 @@
   "style": "dark",
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "${DS_PROM-PROMETHEUS-SERVER}",
+        "hide": 0,
+        "includeAll": true,
+        "label": "Env",
+        "multi": true,
+        "name": "namespace",
+        "options": [],
+        "query": "label_values(namespace)",
+        "refresh": 1,
+        "regex": "/.+/",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
   },
   "time": {
     "from": "now-30m",
@@ -253,5 +276,5 @@
   "timezone": "",
   "title": "Business_Logic_Monitoring",
   "uid": "PyxV-lhik",
-  "version": 1
+  "version": 2
 }
