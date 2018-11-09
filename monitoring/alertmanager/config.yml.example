@@ -1,0 +1,24 @@
+global:
+  smtp_from: 'example@gmail.com'
+  smtp_smarthost: 'smtp.gmail.com:587'
+  smtp_auth_username: 'example@gmail.com'
+  smtp_auth_password: 'secret'
+  smtp_auth_identity: 'example@gmail.com'
+  slack_api_url: 'https://hooks.slack.com/example/url'
+
+route:
+  receiver: 'slack'
+  routes:
+    - match:
+      continue: true
+      receiver: 'slack'
+    - match:
+      receiver: 'email'
+
+receivers:
+- name: 'slack'
+  slack_configs:
+  - channel: '#userchannel'
+- name: 'email'
+  email_configs:
+  - to: 'example@gmail.com'

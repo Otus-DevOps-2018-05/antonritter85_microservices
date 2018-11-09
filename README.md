@@ -1,6 +1,24 @@
 # antonritter85_microservices
 antonritter85 microservices repository
 
+## Homework-19 Monitoring-2
+
+#### В процессе сделано:
+
+- разделены файлы Docker Compose:
+  - docker-compose.yml - для приложений;
+  - docker- compose-monitoring.yml - для описание инфраструктуры мониторинга;
+- добавление cAdvisor и его интеграция с Prothemeus для мониторинга за состоянием Docker контейнеров;
+- добавление Grafana для визуализации метрик Prometheus;
+- импорт и создание дашбордов в Grafana;
+- добавление Alertmanager и его интеграция с Prothemeus для первичной обратки алертов и отправки оповещений в Slack;
+- (Задание со *) в Makefile добавлены билд и пуш новых сервисов;
+- (Задание со *) добавлен сбор метрик с помощью Docker-демона: количество метрик значительно меньше, чем у cAdvisor;
+- (Задание со *) добавлен сбор метрик Docker-демона с помощью Telegraf: имеется обширное количество метрик сравнимо с cAdvisor;
+- (Задание со *) добавлен алерт на 95 перцентиль времени ответа UI;
+- настроена интеграция Alertmanager с e-mail (запушен config.yml.example в директорию monitoring/alertmanager).
+
+
 ## Homework-18 Monitoring-1
 
 #### В процессе сделано:
