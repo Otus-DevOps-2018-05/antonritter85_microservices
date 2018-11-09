@@ -1,6 +1,31 @@
 # antonritter85_microservices
 antonritter85 microservices repository
 
+## Homework-18 Monitoring-1
+
+#### В процессе сделано:
+
+- подготовлено окружение и запущен Prometheus из готового образа с DockerHub;
+- знакомство с веб-интерфейсом Prometheus и остановка контейнера;
+- изменение структуры репозитория;
+- работа с образами:
+  - создание и сборка собственного образа Prometheus;
+  - сборка образов микросервисов с помощью скриптов (docker_build.sh);
+  - добавление Prometheus в docker-compose файл;
+  - запуск контейнеров;
+- мониторинг состояния сервисов в Prometheus;
+- работа с Prometheus Exporters: добавление Node exporter в конфигурацию;
+- созданные образы запушены в DockerHub*
+- (Задание со *) добавление MongoDB exporter в Prometheus (создан собственный образ, использован [percona/mongodb_exporter](https://github.com/percona/mongodb_exporter));
+- (Задание со *) добавление cloudprober в Prometheus (добавлен конфигурационный файл в официальный образ);
+- (Задание со *) создан Makefile:
+  - для билда всех или любого образа;
+  - для пуша в DockerHub всех или любого образа.
+
+### Ссылка на DockerHub c образами:
+
+- https://hub.docker.com/u/antonritter85/
+
 ## Homework-17 Gitlab-CI-2
 
 #### В процессе сделано:
