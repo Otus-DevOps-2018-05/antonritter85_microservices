@@ -1,5 +1,5 @@
 ---
-- name: Install Docker Engine
+- name: Install Docker Engine and Docker Compose
   hosts: all
   become: true
 
@@ -25,25 +25,28 @@
       
     - name: Add docker repository into sources list
       apt_repository:
-        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable
+        repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release | lower }} stable"
         state: present
       tags: install
       
-    - name: Install docker-ce from repo
+    - name: Install docker-ce
       apt:
         name: docker-ce
         state: present
         update_cache: yes
       tags: install
       
-    - name: Enable service docker
+    - name: Enable docker service
       systemd:
         name: docker
         enabled: yes
         state: started
       tags: install
 
-    - name: Install Python library for the Docker Engine API
+    - name: Install Python library for the Docker Engine API and Docker Compose
       pip:
-        name: docker
+        name: "{{ item }}"
+      loop:
+        - docker
+        - docker-compose
       tags: install

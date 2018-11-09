@@ -19,11 +19,12 @@ resource "google_compute_instance" "docker-instance" {
 
   boot_disk {
     initialize_params {
+      size  = "${var.disk_size}"
       image = "${var.disk_image}"
     }
   }
 
-  tags = ["docker-machine"]
+  tags = ["docker-machine", "http-server", "https-server"]
 
   network_interface {
     network = "default"
@@ -45,4 +46,30 @@ resource "google_compute_firewall" "firewall-puma" {
   source_ranges = ["0.0.0.0/0"]
 
   target_tags = ["docker-machine"]
+}
+
+resource "google_compute_firewall" "default-allow-http" {
+  name    = "default-allow-http"
+  network = "default"
+
+  allow {
+    protocol = "tcp"
+    ports    = ["80"]
+  }
+
+  source_ranges = ["0.0.0.0/0"]
+  target_tags   = ["http-server"]
+}
+
+resource "google_compute_firewall" "default-allow-https" {
+  name    = "default-allow-https"
+  network = "default"
+
+  allow {
+    protocol = "tcp"
+    ports    = ["443"]
+  }
+
+  source_ranges = ["0.0.0.0/0"]
+  target_tags   = ["https-server"]
 }

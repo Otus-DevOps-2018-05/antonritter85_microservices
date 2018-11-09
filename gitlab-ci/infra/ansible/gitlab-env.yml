@@ -1,0 +1,24 @@
+---
+- name: Prepare GitLab environment
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Make directories for GitLab
+      file:
+        path: '/srv/gitlab/{{ item }}'
+        state: directory
+      loop:
+        - config
+        - data
+        - logs
+
+    - name: Get my public IP
+      ipify_facts:
+
+    - debug: var=ipify_public_ip
+
+    - name: Copy docker-compose file
+      template:
+        src: templates/docker-compose.yml.j2
+        dest: /srv/gitlab/docker-compose.yml
