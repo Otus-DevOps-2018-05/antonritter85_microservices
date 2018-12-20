@@ -1,6 +1,21 @@
 # antonritter85_microservices
 antonritter85 microservices repository
 
+## Homework-22 Kubernetes-2
+
+![image](https://user-images.githubusercontent.com/39992506/47031353-5066df80-d178-11e8-9c31-f8a1bb5aba55.png)
+
+#### В процессе сделано:
+
+- развернуто локальное окружение kubernetes: minikube, kubectl;
+- приложение reddit запущено в локальном окружении (использованы deployments, services, namespaces);
+- знакомство с kubernetes dashboard;
+- развернут кластер в GKE;
+- запуск приложения reddit в кластере GKE;
+- запуск kubernetes dashboard в GKE;
+- (Задание со *) развернут Kubenetes-кластер в GKE с помощью Terraform;
+- (Задание со *) добален манифест для аутентификации kubernetes dashboard в кластере.
+
 ## Homework-21 Kubernetes-1
 
 #### В процессе сделано:
