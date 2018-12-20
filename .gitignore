@@ -14,3 +14,7 @@ variables.json
 *.env
 
 vault.key
+
+# Certicate and key for Kubernetes Ingress
+tls.crt
+tls.key
