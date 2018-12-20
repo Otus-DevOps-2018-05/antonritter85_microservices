@@ -1,6 +1,19 @@
 # antonritter85_microservices
 antonritter85 microservices repository
 
+## Homework-24 Kubernetes-4
+
+#### В процессе сделано:
+
+- работа c Helm в Kubernetes:
+  - установка Helm на рабочую машину и Tiller в кластер Kubernetes;
+  - создание Сhart-ов для компонентов приложения reddit (ui, post, comment);
+  - упаковка Сhart-ов компонентов в Chart для приложения reddit;
+- развертывание GitLab в Kubernetes;
+- запуск CI/CD конвейера в Kubernetes:
+  - настройка запуска отдельного окружения в Kubernetes по коммиту в feature-ветку, с возможностью удаления окружения вручную;
+  - создание staging и production окружений для работы приложения.
+
 ## Homework-23 Kubernetes-3
 
 #### В процессе сделано:
