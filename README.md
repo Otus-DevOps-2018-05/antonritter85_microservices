@@ -1,6 +1,17 @@
 # antonritter85_microservices
 antonritter85 microservices repository
 
+## Homework-25 Kubernetes-5
+
+#### В процессе сделано:
+
+- развертывание системы мониторинга Prometheus в Kubernetes;
+- настройка Prometheus и Grafana для сбора метрик:
+  - настройка метрик приложений ui, post, comment;
+  - установка Grafana в Kubernetes;
+  - установка и настройка Dashboard-ов (использование механизма Templating) Grafana;
+- развертывание системы логирования (EFK) в Kubernetes.
+
 ## Homework-24 Kubernetes-4
 
 #### В процессе сделано:
